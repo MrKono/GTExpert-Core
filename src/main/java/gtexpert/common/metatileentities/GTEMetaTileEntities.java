@@ -3,7 +3,6 @@ package gtexpert.common.metatileentities;
 import gregtech.api.GTValues;
 import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
 import gregtech.api.util.GTUtility;
-import gregtech.client.renderer.texture.Textures;
 import gtexpert.api.GTEValues;
 import gtexpert.api.recipes.GTERecipeMaps;
 import gtexpert.client.GTETextures;
@@ -18,7 +17,7 @@ import static gregtech.common.metatileentities.MetaTileEntities.*;
 
 public class GTEMetaTileEntities {
     public static final MetaTileEntityExtremeMixer[] EXTREME_MIXER = new MetaTileEntityExtremeMixer[1];
-    public static final MetaTileEntityAutoChisel[] AUTO_CHISEL = new MetaTileEntityAutoChisel[3];
+    public static final SimpleMachineMetaTileEntity[] AUTO_CHISEL = new SimpleMachineMetaTileEntity[4];
     public static MetaTileEntitySawmill SAWMILL;
     public static SimpleMachineMetaTileEntity[] VIAL_EXTRACTOR = new SimpleMachineMetaTileEntity[GTValues.V.length - 1];
     public static SimpleMachineMetaTileEntity[] SLICE_N_SPLICE = new SimpleMachineMetaTileEntity[GTValues.V.length - 1];
@@ -52,9 +51,7 @@ public class GTEMetaTileEntities {
 
         // blocks :11001~
         // AUTO_CHISEL 11001~11003
-        AUTO_CHISEL[0] = registerMetaTileEntity(11001, new MetaTileEntityAutoChisel(gteId("auto_chisel.lv"), GTERecipeMaps.AUTO_CHISEL_RECIPES, GTETextures.AUTO_CHISEL_OVERLAY, LV, true));
-        AUTO_CHISEL[1] = registerMetaTileEntity(11002, new MetaTileEntityAutoChisel(gteId("auto_chisel.mv"), GTERecipeMaps.AUTO_CHISEL_RECIPES, GTETextures.AUTO_CHISEL_OVERLAY, MV, true));
-        AUTO_CHISEL[2] = registerMetaTileEntity(11003, new MetaTileEntityAutoChisel(gteId("auto_chisel.hv"), GTERecipeMaps.AUTO_CHISEL_RECIPES, GTETextures.AUTO_CHISEL_OVERLAY, HV, true));
+        registerSimpleMetaTileEntity(AUTO_CHISEL, 11001, "auto_chisel", GTERecipeMaps.AUTO_CHISEL_RECIPES, GTETextures.AUTO_CHISEL_OVERLAY, true, GTEMetaTileEntities::gteId, GTUtility.defaultTankSizeFunction);
 
         // EXTREME_MIXER 11007
         EXTREME_MIXER[0] = registerMetaTileEntity(11007, new MetaTileEntityExtremeMixer(gteId("extreme_mixer"), GTERecipeMaps.EXTREME_MIXER_RECIPES, GTETextures.EXTREME_MIXER_OVERLAY, ZPM, true, GTUtility.hvCappedTankSizeFunction));

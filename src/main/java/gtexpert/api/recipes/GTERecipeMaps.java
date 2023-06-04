@@ -21,7 +21,8 @@ public class GTERecipeMaps {
             .setSound(GTSoundEvents.MIXER);
 
     @ZenProperty
-    public static final RecipeMap<SimpleRecipeBuilder> AUTO_CHISEL_RECIPES = new RecipeMap<>("auto_chisel", 2, 12, 0, 0, new SimpleRecipeBuilder(), false)
+    public static final RecipeMap<SimpleRecipeBuilder> AUTO_CHISEL_RECIPES = new RecipeMap<>("auto_chisel", 2, 9, 0, 0, new SimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, false, GuiTextures.BOXED_BACKGROUND)
             .setProgressBar(GTEGuiTextures.PROGRESS_BAR_CHISEL, ProgressWidget.MoveType.HORIZONTAL)
             .setSound(GTSoundEvents.FIRE);
     

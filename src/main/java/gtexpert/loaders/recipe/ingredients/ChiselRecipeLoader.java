@@ -3,6 +3,7 @@ package gtexpert.loaders.recipe.ingredients;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.ConfigHolder;
+import gregtech.loaders.recipe.MetaTileEntityLoader;
 import gtexpert.api.GTEValues;
 import gtexpert.api.recipes.GTERecipeMaps;
 import gtexpert.integration.chisel.ChiselHelper;
@@ -13,8 +14,6 @@ import net.minecraftforge.oredict.OreDictionary;
 import team.chisel.common.init.ChiselBlocks;
 import team.chisel.common.init.ChiselItems;
 
-import static gregtech.api.GTValues.LV;
-import static gregtech.api.GTValues.VA;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.blocks.BlockWarningSign.SignType.*;
@@ -22,6 +21,8 @@ import static gregtech.common.blocks.BlockWarningSign1.SignType.*;
 import static gregtech.common.blocks.MetaBlocks.*;
 import static gregtech.common.blocks.StoneVariantBlock.StoneType.*;
 import static gregtech.common.blocks.StoneVariantBlock.StoneVariant.*;
+import static gregtech.loaders.recipe.CraftingComponent.*;
+import static gtexpert.common.metatileentities.GTEMetaTileEntities.AUTO_CHISEL;
 
 public class ChiselRecipeLoader {
     public static void init() {
@@ -63,10 +64,17 @@ public class ChiselRecipeLoader {
         // Auto Chisel
         ModHandler.removeRecipeByName(new ResourceLocation(GTEValues.MODID_CHISEL, "autochisel"));
         ModHandler.addShapedRecipe("autochisel", new ItemStack(ChiselBlocks.auto_chisel),
-                "PPP", "PCP", "SSS",
+                "PPP", "PTP", "SSS",
                 'P', "paneGlass",
-                'C', "craftChisel",
+                'T', "craftChisel",
                 'S', new UnificationEntry(slab, Stone));
+        MetaTileEntityLoader.registerMachineRecipe(AUTO_CHISEL, "BMB", "THT", "SCS",
+                'M', MOTOR,
+                'S', SENSOR,
+                'T', "craftChisel",
+                'H', HULL,
+                'B', new UnificationEntry(toolHeadBuzzSaw, Invar),
+                'C', CIRCUIT);
 
         // Glass Pane
         if (ConfigHolder.recipes.hardGlassRecipes) {
