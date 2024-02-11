@@ -1,5 +1,6 @@
 package gtexpert.integration.ffm;
 
+import gtexpert.integration.ffm.recipes.*;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.event.RegistryEvent;
 
@@ -20,5 +21,16 @@ public class FFMModule extends GTEIntegrationSubmodule {
     @Override
     public void registerRecipesNormal(RegistryEvent.Register<IRecipe> event) {
         FFMOreDictionaryLoader.init();
+    }
+
+    @Override
+    public void registerRecipesLowest(RegistryEvent.Register<IRecipe> event) {
+        FFMApicultureRecipe.init();
+        FFMAgricultureRecipe.init();
+        FFMCoreRecipe.init();
+        FFMItemRecipe.init();
+        FFMLepidopterologyRecipe.init();
+        FFMMachineRecipe.init();
+        FFMTreeRecipe.init();
     }
 }
