@@ -1,3 +1,8 @@
+# v2.0.5
+- Name change of AGC in GTE to LGC [#236](https://github.com/GTModpackTeam/GTExpert-Core/pull/236)
+
+* * *
+
 # v2.0.4
 - ExtraCPUs and NAE2 added to integration.
 - Fluix Alloy Dust recipe fixes.
@@ -93,7 +98,7 @@
 - Increase the applicability of recipes that can be changed by changing cfg.
 
 ## New machine
-- Add Advanced Gas Collector
+- Add Large Gas Collector
 
 * * *
 
