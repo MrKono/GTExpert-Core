@@ -1,3 +1,13 @@
+# v2.0.7
+- Following `#2354` in CEu [#255](https://github.com/GTModpackTeam/GTExpert-Core/issues/225)
+
+* * *
+
+# v2.0.6
+- Fix AE Additions Integration [#237](https://github.com/GTModpackTeam/GTExpert-Core/pull/237)
+
+* * *
+
 # v2.0.5
 - Name change of AGC in GTE to LGC [#236](https://github.com/GTModpackTeam/GTExpert-Core/pull/236)
 

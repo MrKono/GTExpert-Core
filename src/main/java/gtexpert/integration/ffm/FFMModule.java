@@ -7,6 +7,7 @@ import net.minecraftforge.event.RegistryEvent;
 
 import gtexpert.api.GTEValues;
 import gtexpert.api.modules.GTEModule;
+import gtexpert.api.util.Mods;
 import gtexpert.integration.GTEIntegrationSubmodule;
 import gtexpert.integration.ffm.loaders.FFMOreDictionaryLoader;
 import gtexpert.modules.GTEModules;
@@ -15,7 +16,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 @GTEModule(
            moduleID = GTEModules.MODULE_FFM,
            containerID = GTEValues.MODID,
-           modDependencies = GTEValues.MODID_FFM,
+           modDependencies = Mods.Names.FORESTRY,
            name = "GTExpert Forestry For Minecraft Integration",
            description = "Forestry For Minecraft Integration Module")
 public class FFMModule extends GTEIntegrationSubmodule {
