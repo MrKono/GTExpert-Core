@@ -4,4 +4,6 @@ public class FFMLepidopterologyRecipe {
     // Target Module: lepidopterology
 
     public static void init() {}
+
+    public static void remove() {}
 }

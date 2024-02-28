@@ -11,6 +11,8 @@ public class FFMItemRecipe {
 
     public static void init() {}
 
+    public static void remove() {}
+
     //Module: backpacks
     public static class backpacks {}
 

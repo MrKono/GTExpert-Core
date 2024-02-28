@@ -5,6 +5,8 @@ import static gregtech.api.unification.material.info.MaterialFlags.*;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.*;
 import gregtech.api.unification.ore.OrePrefix;
+import gtexpert.api.GTEValues;
+import net.minecraftforge.fml.common.Loader;
 
 public class GTEMaterialFlags {
 
@@ -47,5 +49,10 @@ public class GTEMaterialFlags {
         // Iridium
         Materials.Iridium.setProperty(PropertyKey.ORE, new OreProperty());
         Materials.Iridium.getProperty(PropertyKey.ORE).setOreByProducts(Materials.Platinum, Materials.Osmium);
+
+        if (Loader.isModLoaded(GTEValues.MODID_FFM)) {
+            // Tin
+            Materials.Tin.addFlags(GENERATE_GEAR);
+        }
     }
 }
