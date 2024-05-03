@@ -11,7 +11,7 @@ import gtexpert.modules.GTEModules;
         category = "Forestry")
 public class FFMConfigHolder {
 
-    @Config.Comment({ "Recipes for various items in Forestry will be more difficult",
+    @Config.Comment({ "If HARD, Recipes for various items in Forestry will be more difficult",
             "default: NORMAL",
             "valid: [NORMAL, HARD]" })
     public static String gameMode = "NORMAL";

@@ -53,13 +53,13 @@ public class CarpenterLoader {
             ApicultureNormal();
 
             // Circuit
-            CarpenterLoader.registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 0),
+           registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 0),
                     20, Materials.Iron, MetaItems.COATED_BOARD);
-            CarpenterLoader.registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 1),
+           registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 1),
                     40, Materials.Bronze, MetaItems.COATED_BOARD);
-            CarpenterLoader.registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 2),
+           registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 2),
                     80, Materials.Steel, MetaItems.PHENOLIC_BOARD);
-            CarpenterLoader.registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 3),
+           registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 3),
                     160, Materials.Electrum, MetaItems.PHENOLIC_BOARD);
 
         } else if (recipeMode == FFMUtility.recipeMode.HARD) {
@@ -69,13 +69,13 @@ public class CarpenterLoader {
             LepidopterologyHard();
 
             // Circuit
-            CarpenterLoader.registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 0),
+            registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 0),
                     20, Materials.Iron, MetaItems.COATED_BOARD, GTUtil.oreDictionaryCircuit(GTValues.ULV));
-            CarpenterLoader.registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 1),
+            registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 1),
                     40, Materials.Bronze, MetaItems.COATED_BOARD, GTUtil.oreDictionaryCircuit(GTValues.LV));
-            CarpenterLoader.registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 2),
+            registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 2),
                     80, Materials.Steel, MetaItems.PHENOLIC_BOARD, GTUtil.oreDictionaryCircuit(GTValues.MV));
-            CarpenterLoader.registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 3),
+            registerCarpenterRecipe(recipeMode, Mods.Forestry.getItem("chipsets", 1, 3),
                     160, Materials.Electrum, MetaItems.PHENOLIC_BOARD, GTUtil.oreDictionaryCircuit(GTValues.HV));
         }
     }
@@ -83,18 +83,18 @@ public class CarpenterLoader {
     /**
      * XX : Module Name
      * - : Always loaded
-     * Normal : Only loaded when hardForestryRecipe is false
-     * Hard : Only loaded when hardForestryRecipe is true
+     * Normal : Only loaded when NORMAL Mode
+     * Hard : Only loaded when HARD Mode
      */
     private static void Core() {
         if (Mods.ForestryFactory.isModLoaded()) {
-            CarpenterLoader.removeCarpenterRecipe(Mods.Forestry.getItem("portable_alyzer"));
-            CarpenterLoader.removeCarpenterRecipe(Mods.Forestry.getItem("hardened_machine"));
-            CarpenterLoader.removeCarpenterRecipe(Mods.Forestry.getItem("kit_pickaxe"));
-            CarpenterLoader.removeCarpenterRecipe(Mods.Forestry.getItem("kit_shovel"));
-            CarpenterLoader.removeCarpenterRecipe(Mods.Forestry.getItem("wood_pulp"));
-            CarpenterLoader.removeCarpenterRecipe(Mods.Forestry.getItem("carton"));
-            CarpenterLoader.removeCarpenterRecipe(new ItemStack(Items.PAPER));
+            removeCarpenterRecipe(Mods.Forestry.getItem("portable_alyzer"));
+            removeCarpenterRecipe(Mods.Forestry.getItem("hardened_machine"));
+            removeCarpenterRecipe(Mods.Forestry.getItem("kit_pickaxe"));
+            removeCarpenterRecipe(Mods.Forestry.getItem("kit_shovel"));
+            removeCarpenterRecipe(Mods.Forestry.getItem("wood_pulp"));
+            removeCarpenterRecipe(Mods.Forestry.getItem("carton"));
+            removeCarpenterRecipe(new ItemStack(Items.PAPER));
 
             RecipeManagers.carpenterManager.addRecipe(
                     5, Materials.Water.getFluid(1000),
@@ -557,15 +557,15 @@ public class CarpenterLoader {
 
     private static void Factory() {
         if (!Mods.ForestryFactory.isModLoaded()) return;
-        CarpenterLoader.removeCarpenterRecipe(
+        removeCarpenterRecipe(
                 ItemCircuitBoard.createCircuitboard(EnumCircuitBoardType.BASIC, null, new ICircuit[] {}));
-        CarpenterLoader.removeCarpenterRecipe(
+        removeCarpenterRecipe(
                 ItemCircuitBoard.createCircuitboard(EnumCircuitBoardType.ENHANCED, null, new ICircuit[] {}));
-        CarpenterLoader.removeCarpenterRecipe(
+        removeCarpenterRecipe(
                 ItemCircuitBoard.createCircuitboard(EnumCircuitBoardType.REFINED, null, new ICircuit[] {}));
-        CarpenterLoader.removeCarpenterRecipe(
+        removeCarpenterRecipe(
                 ItemCircuitBoard.createCircuitboard(EnumCircuitBoardType.INTRICATE, null, new ICircuit[] {}));
-        CarpenterLoader.removeCarpenterRecipe(Mods.Forestry.getItem("soldering_iron"));
+        removeCarpenterRecipe(Mods.Forestry.getItem("soldering_iron"));
 
         RecipeManagers.carpenterManager.addRecipe(
                 40, Materials.Water.getFluid(1000),
