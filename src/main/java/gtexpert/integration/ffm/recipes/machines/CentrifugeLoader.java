@@ -44,6 +44,9 @@ public class CentrifugeLoader {
         registerCombRecipe(Mods.Forestry.getItem("bee_combs", 1, 0),
                 new ItemStack[] { wax, drop },
                 new int[] { 10000, 9000 });
+        registerCombRecipe(Mods.Forestry.getItem("bee_combs", 1, 1),
+                new ItemStack[] { wax, new ItemStack(Items.DYE, 1, 3) },
+                new int[] { 10000, 5000 });
         registerCombRecipe(Mods.Forestry.getItem("bee_combs", 1, 2),
                 new ItemStack[] { Mods.Forestry.getItem("refractory_wax"), Mods.Forestry.getItem("phosphor", 2) },
                 new int[] { 10000, 7000 });
