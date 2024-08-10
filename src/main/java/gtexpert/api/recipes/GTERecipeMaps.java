@@ -3,6 +3,12 @@ package gtexpert.api.recipes;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 
+import gregtech.api.recipes.ingredients.GTRecipeInput;
+
+import gregtech.common.blocks.MetaBlocks;
+
+import gregtech.common.items.MetaItems;
+
 import net.minecraft.init.SoundEvents;
 
 import gregtech.api.gui.GuiTextures;
@@ -16,6 +22,9 @@ import gregtech.core.sound.GTSoundEvents;
 import gtexpert.api.gui.GTEGuiTextures;
 
 import crafttweaker.annotations.ZenRegister;
+
+import net.minecraft.item.ItemStack;
+
 import stanhebben.zenscript.annotations.ZenExpansion;
 import stanhebben.zenscript.annotations.ZenProperty;
 
@@ -65,6 +74,44 @@ public class GTERecipeMaps {
                     .setSlotOverlay(true, false, true, GuiTextures.DUST_OVERLAY)
                     .setSound(SoundEvents.ENTITY_GENERIC_EXPLODE)
                     .setSmallRecipeMap(RecipeMaps.IMPLOSION_RECIPES);
+
+    @ZenProperty
+    public static final RecipeMap<SimpleRecipeBuilder> FAKE_IMPLOSION_RECIPES = new RecipeMap<>(
+            "fake_implosion_compressor", 3, 2, 0, 0,
+            new SimpleRecipeBuilder().duration(20).EUt(VA[LV]), false)
+                    .setSlotOverlay(false, false, true, GuiTextures.IMPLOSION_OVERLAY_1)
+                    .setSlotOverlay(false, false, false, GuiTextures.IMPLOSION_OVERLAY_2)
+                    .setSlotOverlay(true, false, true, GuiTextures.DUST_OVERLAY)
+                    .setSound(SoundEvents.ENTITY_GENERIC_EXPLODE)
+                    .onRecipeBuild(recipeBuilder -> {
+                        RecipeMaps.IMPLOSION_RECIPES.recipeBuilder()
+                                .inputs(recipeBuilder.getInputs().toArray(new GTRecipeInput[0]))
+                                .outputs(recipeBuilder.getOutputs())
+                                .chancedOutputs(recipeBuilder.getChancedOutputs())
+                                .explosivesType(new ItemStack(MetaBlocks.POWDERBARREL, 8))
+                                .buildAndRegister();
+
+                        RecipeMaps.IMPLOSION_RECIPES.recipeBuilder()
+                                .inputs(recipeBuilder.getInputs().toArray(new GTRecipeInput[0]))
+                                .outputs(recipeBuilder.getOutputs())
+                                .chancedOutputs(recipeBuilder.getChancedOutputs())
+                                .explosivesAmount(4)
+                                .buildAndRegister();
+
+                        RecipeMaps.IMPLOSION_RECIPES.recipeBuilder()
+                                .inputs(recipeBuilder.getInputs().toArray(new GTRecipeInput[0]))
+                                .outputs(recipeBuilder.getOutputs())
+                                .chancedOutputs(recipeBuilder.getChancedOutputs())
+                                .explosivesType(MetaItems.DYNAMITE.getStackForm(2))
+                                .buildAndRegister();
+
+                        RecipeMaps.IMPLOSION_RECIPES.recipeBuilder()
+                                .inputs(recipeBuilder.getInputs().toArray(new GTRecipeInput[0]))
+                                .outputs(recipeBuilder.getOutputs())
+                                .chancedOutputs(recipeBuilder.getChancedOutputs())
+                                .explosivesType(new ItemStack(MetaBlocks.ITNT))
+                                .buildAndRegister();
+            });
 
     @ZenProperty
     public static final RecipeMap<SimpleRecipeBuilder> STEAM_MIXER_RECIPES = new RecipeMap<>(
