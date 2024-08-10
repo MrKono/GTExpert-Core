@@ -4,6 +4,10 @@ import static gregtech.api.GregTechAPI.HEATING_COILS;
 import static gtexpert.GTExpertMod.createItemBlock;
 import static gtexpert.common.blocks.GTEMetaBlocks.*;
 
+import gregtech.api.recipes.ingredients.GTRecipeInput;
+
+import gtexpert.api.recipes.GTERecipeMaps;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -72,6 +76,15 @@ public class GTECoreModule implements IGTEModule {
         GTEMetaBlocks.init();
         GTEMetaItems.init();
         GTEToolItems.init();
+
+        RecipeMaps.IMPLOSION_RECIPES.onRecipeBuild(
+                recipeBuilder -> {
+                    GTERecipeMaps.ELECTRIC_IMPLOSION_COMPRESSOR_RECIPES.recipeBuilder()
+                            .inputs(recipeBuilder.getInputs().toArray(new GTRecipeInput[0]))
+                            .outputs(recipeBuilder.getOutputs())
+                            .chancedOutputs(recipeBuilder.getChancedOutputs())
+                            .buildAndRegister();
+                });
 
         /* Start API Block Registration */
         for (GTEBlockWireCoil.GTECoilType type : GTEBlockWireCoil.GTECoilType.values()) {
